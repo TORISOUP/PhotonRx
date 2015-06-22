@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// PhotonNetwork.CreateRoomが成功したことを通知する
         /// </summary>
-        public IObservable<Unit> OnCreatedRoomAsObservabvle()
+        public IObservable<Unit> OnCreatedRoomAsObservable()
         {
             return onCreatedRoom ?? (onCreatedRoom = new Subject<Unit>());
         }

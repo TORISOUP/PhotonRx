@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// リモートプレイヤが部屋に参加したことを通知する
         /// </summary>
-        public IObservable<PhotonPlayer> OnPhotonPlayerConnectedAsObservabvle()
+        public IObservable<PhotonPlayer> OnPhotonPlayerConnectedAsObservable()
         {
             return onPhotonPlayerConnected ?? (onPhotonPlayerConnected = new Subject<PhotonPlayer>());
         }

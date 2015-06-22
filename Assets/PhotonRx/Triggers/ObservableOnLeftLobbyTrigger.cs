@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// ロビーから退出したことを通知する
         /// </summary>
-        public IObservable<Unit> OnLeftLobbyAsObservabvle()
+        public IObservable<Unit> OnLeftLobbyAsObservable()
         {
             return onLeftLobby ?? (onLeftLobby = new Subject<Unit>());
         }

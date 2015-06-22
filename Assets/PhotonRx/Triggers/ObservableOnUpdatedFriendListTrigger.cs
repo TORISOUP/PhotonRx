@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// PhotonNetwork.Firendsが更新されたことを通知する
         /// </summary>
-        public IObservable<Unit> OnUpdatedFriendListAsObservabvle()
+        public IObservable<Unit> OnUpdatedFriendListAsObservable()
         {
             return onUpdatedFriendList ?? (onUpdatedFriendList = new Subject<Unit>());
         }

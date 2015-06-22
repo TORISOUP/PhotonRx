@@ -25,7 +25,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// プレイヤのカスタムプロパティが変更されたことを通知する
         /// </summary>
-        public IObservable<Tuple<PhotonPlayer, Hashtable>> OnPhotonPlayerPropertiesChangedAsObservabvle()
+        public IObservable<Tuple<PhotonPlayer, Hashtable>> OnPhotonPlayerPropertiesChangedAsObservable()
         {
             return onPhotonPlayerPropertiesChanged ?? (onPhotonPlayerPropertiesChanged = new Subject<Tuple<PhotonPlayer, Hashtable>>());
         }
