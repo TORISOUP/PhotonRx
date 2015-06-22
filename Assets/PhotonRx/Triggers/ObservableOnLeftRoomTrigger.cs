@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// 自身が部屋から出たことを通知する
         /// </summary>
-        public IObservable<Unit> OnLeftRoomAsObservabvle()
+        public IObservable<Unit> OnLeftRoomAsObservable()
         {
             return onLeftRoom ?? (onLeftRoom = new Subject<Unit>());
         }

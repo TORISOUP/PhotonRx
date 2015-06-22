@@ -21,7 +21,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnConnectedToMasterAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnConnectedToMasterTrigger>(component.gameObject).OnConnectedToMasterAsObservabvle();
+            return GetOrAddComponent<ObservableOnConnectedToMasterTrigger>(component.gameObject).OnConnectedToMasterAsObservable();
         }
         #endregion
 
@@ -44,7 +44,7 @@ namespace PhotonRx
         public static IObservable<DisconnectCause> OnConnectionFailAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<DisconnectCause> ();
-            return GetOrAddComponent<ObservableOnConnectionFailTrigger>(component.gameObject).OnConnectionFailAsObservabvle();
+            return GetOrAddComponent<ObservableOnConnectionFailTrigger>(component.gameObject).OnConnectionFailAsObservable();
         }
         #endregion
 
@@ -56,7 +56,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnCreatedRoomAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnCreatedRoomTrigger>(component.gameObject).OnCreatedRoomAsObservabvle();
+            return GetOrAddComponent<ObservableOnCreatedRoomTrigger>(component.gameObject).OnCreatedRoomAsObservable();
         }
 
         #endregion
@@ -69,7 +69,7 @@ namespace PhotonRx
         public static IObservable<string> OnCustomAuthenticationFailedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<string>();
-            return GetOrAddComponent<ObservableOnCustomAuthenticationFailedTrigger>(component.gameObject).OnCustomAuthenticationFailedAsObservabvle();
+            return GetOrAddComponent<ObservableOnCustomAuthenticationFailedTrigger>(component.gameObject).OnCustomAuthenticationFailedAsObservable();
         }
 
         #endregion
@@ -92,7 +92,7 @@ namespace PhotonRx
         public static IObservable<DisconnectCause> OnFailedToConnectToPhotonAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<DisconnectCause>();
-            return GetOrAddComponent<ObservableOnFailedToConnectToPhotonTrigger>(component.gameObject).OnFailedToConnectToPhotonAsObservabvle();
+            return GetOrAddComponent<ObservableOnFailedToConnectToPhotonTrigger>(component.gameObject).OnFailedToConnectToPhotonAsObservable();
         }
         #endregion
 
@@ -104,7 +104,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnJoinedLobbyAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnJoinedLobbyTrigger>(component.gameObject).OnJoinedLobbyAsObservabvle();
+            return GetOrAddComponent<ObservableOnJoinedLobbyTrigger>(component.gameObject).OnJoinedLobbyAsObservable();
         }
         #endregion
 
@@ -115,7 +115,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnJoinedRoomAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnJoinedRoomTrigger>(component.gameObject).OnJoinedRoomAsObservabvle();
+            return GetOrAddComponent<ObservableOnJoinedRoomTrigger>(component.gameObject).OnJoinedRoomAsObservable();
         }
         #endregion
 
@@ -126,7 +126,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnLeftLobbyAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnLeftLobbyTrigger>(component.gameObject).OnLeftLobbyAsObservabvle();
+            return GetOrAddComponent<ObservableOnLeftLobbyTrigger>(component.gameObject).OnLeftLobbyAsObservable();
         }
         #endregion
 
@@ -137,7 +137,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnLeftRoomAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnLeftRoomTrigger>(component.gameObject).OnLeftRoomAsObservabvle();
+            return GetOrAddComponent<ObservableOnLeftRoomTrigger>(component.gameObject).OnLeftRoomAsObservable();
         }
         #endregion
 
@@ -159,7 +159,7 @@ namespace PhotonRx
         public static IObservable<Tuple<PhotonView, PhotonPlayer>> OnOwnershipRequestAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Tuple<PhotonView, PhotonPlayer>>();
-            return GetOrAddComponent<ObservableOnOwnershipRequestTrigger>(component.gameObject).OnOwnershipRequestAsObservabvle();
+            return GetOrAddComponent<ObservableOnOwnershipRequestTrigger>(component.gameObject).OnOwnershipRequestAsObservable();
         }
         #endregion
 
@@ -192,7 +192,7 @@ namespace PhotonRx
         public static IObservable<Hashtable> OnPhotonCustomRoomPropertiesChangedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Hashtable>();
-            return GetOrAddComponent<ObservableOnPhotonCustomRoomPropertiesChangedTrigger>(component.gameObject).OnPhotonPlayerConnectedAsObservabvle();
+            return GetOrAddComponent<ObservableOnPhotonCustomRoomPropertiesChangedTrigger>(component.gameObject).OnPhotonPlayerConnectedAsObservable();
         }
         #endregion
 
@@ -203,7 +203,7 @@ namespace PhotonRx
         public static IObservable<PhotonMessageInfo> OnPhotonInstantiateAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<PhotonMessageInfo>();
-            return GetOrAddComponent<ObservableOnPhotonInstantiateTrigger>(component.gameObject).OnPhotonInstantiateAsObservabvle();
+            return GetOrAddComponent<ObservableOnPhotonInstantiateTrigger>(component.gameObject).OnPhotonInstantiateAsObservable();
         }
         #endregion
 
@@ -236,7 +236,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnPhotonMaxCccuReachedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnPhotonMaxCccuReachedTrigger>(component.gameObject).OnPhotonMaxCccuReachedAsObservabvle();
+            return GetOrAddComponent<ObservableOnPhotonMaxCccuReachedTrigger>(component.gameObject).OnPhotonMaxCccuReachedAsObservable();
         }
         #endregion
 
@@ -247,7 +247,7 @@ namespace PhotonRx
         public static IObservable<PhotonPlayer> OnPhotonPlayerConnectedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<PhotonPlayer>();
-            return GetOrAddComponent<ObservableOnPhotonPlayerConnectedTrigger>(component.gameObject).OnPhotonPlayerConnectedAsObservabvle();
+            return GetOrAddComponent<ObservableOnPhotonPlayerConnectedTrigger>(component.gameObject).OnPhotonPlayerConnectedAsObservable();
         }
         #endregion
 
@@ -258,7 +258,7 @@ namespace PhotonRx
         public static IObservable<PhotonPlayer> OnPhotonPlayerDisconnectedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<PhotonPlayer>();
-            return GetOrAddComponent<ObservableOnPhotonPlayerDisconnectedTrigger>(component.gameObject).OnPhotonPlayerDisconnectedAsObservabvle();
+            return GetOrAddComponent<ObservableOnPhotonPlayerDisconnectedTrigger>(component.gameObject).OnPhotonPlayerDisconnectedAsObservable();
         }
         #endregion
 
@@ -269,7 +269,7 @@ namespace PhotonRx
         public static IObservable<Tuple<PhotonPlayer, Hashtable>> OnPhotonPlayerPropertiesChangedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Tuple<PhotonPlayer, Hashtable>>();
-            return GetOrAddComponent<ObservableOnPhotonPlayerPropertiesChangedTrigger>(component.gameObject).OnPhotonPlayerPropertiesChangedAsObservabvle();
+            return GetOrAddComponent<ObservableOnPhotonPlayerPropertiesChangedTrigger>(component.gameObject).OnPhotonPlayerPropertiesChangedAsObservable();
         }
         #endregion
 
@@ -305,7 +305,7 @@ namespace PhotonRx
             if (component == null || component.gameObject == null) return Observable.Empty<Tuple<PhotonStream, PhotonMessageInfo>>();
             return
                 GetOrAddComponent<ObservableOnPhotonSerializeViewTrigger>(component.gameObject)
-                    .OnPhotonSerializeViewAsObservabvle();
+                    .OnPhotonSerializeViewAsObservable();
         }
 
         #endregion
@@ -317,7 +317,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnReceivedRoomListUpdateAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnReceivedRoomListUpdateTrigger>(component.gameObject).OnReceivedRoomListUpdateAsObservabvle();
+            return GetOrAddComponent<ObservableOnReceivedRoomListUpdateTrigger>(component.gameObject).OnReceivedRoomListUpdateAsObservable();
         }
         #endregion
 
@@ -328,7 +328,7 @@ namespace PhotonRx
         public static IObservable<Unit> OnUpdatedFriendListAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnUpdatedFriendListTrigger>(component.gameObject).OnUpdatedFriendListAsObservabvle();
+            return GetOrAddComponent<ObservableOnUpdatedFriendListTrigger>(component.gameObject).OnUpdatedFriendListAsObservable();
         }
         #endregion
 
@@ -339,7 +339,7 @@ namespace PhotonRx
         public static IObservable<OperationResponse> OnWebRpcResponseAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<OperationResponse>();
-            return GetOrAddComponent<ObservableOnWebRpcResponseTrigger>(component.gameObject).OnWebRpcResponseAsObservabvle();
+            return GetOrAddComponent<ObservableOnWebRpcResponseTrigger>(component.gameObject).OnWebRpcResponseAsObservable();
         }
         #endregion
 

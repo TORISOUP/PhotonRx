@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// CCUの上限に達したため接続が切断されたことを通知する
         /// </summary>
-        public IObservable<Unit> OnPhotonMaxCccuReachedAsObservabvle()
+        public IObservable<Unit> OnPhotonMaxCccuReachedAsObservable()
         {
             return onPhotonMaxCccuReached ?? (onPhotonMaxCccuReached = new Subject<Unit>());
         }

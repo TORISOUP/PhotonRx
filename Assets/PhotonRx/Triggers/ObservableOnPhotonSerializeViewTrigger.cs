@@ -21,7 +21,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// PhotonViewがデータの同期を行うタイミングを通知する
         /// </summary>
-        public IObservable<Tuple<PhotonStream, PhotonMessageInfo>> OnPhotonSerializeViewAsObservabvle()
+        public IObservable<Tuple<PhotonStream, PhotonMessageInfo>> OnPhotonSerializeViewAsObservable()
         {
             return onPhotonSerializeView ??
                    (onPhotonSerializeView = new Subject<Tuple<PhotonStream, PhotonMessageInfo>>());

@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// リモートプレイヤが部屋から退出したことを通知する
         /// </summary>
-        public IObservable<PhotonPlayer> OnPhotonPlayerDisconnectedAsObservabvle()
+        public IObservable<PhotonPlayer> OnPhotonPlayerDisconnectedAsObservable()
         {
             return onPhotonPlayerDisconnected ?? (onPhotonPlayerDisconnected = new Subject<PhotonPlayer>());
         }

@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// 自身が部屋に参加したことを通知する
         /// </summary>
-        public IObservable<Unit> OnJoinedRoomAsObservabvle()
+        public IObservable<Unit> OnJoinedRoomAsObservable()
         {
             return onJoinedRoom ?? (onJoinedRoom = new Subject<Unit>());
         }

@@ -23,7 +23,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// PhotonViewの所有権の譲渡リクエストがきたことを通知する
         /// </summary>
-        public IObservable<Tuple<PhotonView, PhotonPlayer>> OnOwnershipRequestAsObservabvle()
+        public IObservable<Tuple<PhotonView, PhotonPlayer>> OnOwnershipRequestAsObservable()
         {
             return onOwnershipRequest ?? (onOwnershipRequest = new Subject<Tuple<PhotonView, PhotonPlayer>>());
         }

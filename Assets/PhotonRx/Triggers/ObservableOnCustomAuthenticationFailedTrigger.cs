@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// カスタム認証に失敗したことを通知する
         /// </summary>
-        public IObservable<string> OnCustomAuthenticationFailedAsObservabvle()
+        public IObservable<string> OnCustomAuthenticationFailedAsObservable()
         {
             return onCustomAuthenticationFailed ?? (onCustomAuthenticationFailed = new Subject<string>());
         }

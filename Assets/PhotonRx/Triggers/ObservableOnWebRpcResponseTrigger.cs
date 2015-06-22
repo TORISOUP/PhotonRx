@@ -19,7 +19,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// WebRPCを受信したことを通知する
         /// </summary>
-        public IObservable<OperationResponse> OnWebRpcResponseAsObservabvle()
+        public IObservable<OperationResponse> OnWebRpcResponseAsObservable()
         {
             return onWebRpcResponse ?? (onWebRpcResponse = new Subject<OperationResponse>());
         }

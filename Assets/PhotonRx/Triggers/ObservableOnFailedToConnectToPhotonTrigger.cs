@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// Photonサーバーへの接続が確立するより前に失敗したときに、原因とともに通知する
         /// </summary>
-        public IObservable<DisconnectCause> OnFailedToConnectToPhotonAsObservabvle()
+        public IObservable<DisconnectCause> OnFailedToConnectToPhotonAsObservable()
         {
             return onFailedToConnectToPhoton ?? (onFailedToConnectToPhoton = new Subject<DisconnectCause>());
         }

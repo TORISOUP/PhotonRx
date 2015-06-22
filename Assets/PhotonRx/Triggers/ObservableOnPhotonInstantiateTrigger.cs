@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// PhotonNetwork.InstantiateによってGameObjectが生成されたことを通知する
         /// </summary>
-        public IObservable<PhotonMessageInfo> OnPhotonInstantiateAsObservabvle()
+        public IObservable<PhotonMessageInfo> OnPhotonInstantiateAsObservable()
         {
             return onPhotonInstantiate ?? (onPhotonInstantiate = new Subject<PhotonMessageInfo>());
         }

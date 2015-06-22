@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// 部屋リストが更新されたことを通知する
         /// </summary>
-        public IObservable<Unit> OnReceivedRoomListUpdateAsObservabvle()
+        public IObservable<Unit> OnReceivedRoomListUpdateAsObservable()
         {
             return onRoomListUpdate ?? (onRoomListUpdate = new Subject<Unit>());
         }

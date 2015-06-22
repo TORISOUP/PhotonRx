@@ -18,7 +18,7 @@ namespace PhotonRx.Triggers
         /// <summary>
         /// PhotonNetwork.autoJoinLobbyがtrueのときにMasterServerのロビーに参加できたことを通知する
         /// </summary>
-        public IObservable<Unit> OnJoinedLobbyAsObservabvle()
+        public IObservable<Unit> OnJoinedLobbyAsObservable()
         {
             return onJoinedLobby ?? (onJoinedLobby = new Subject<Unit>());
         }
