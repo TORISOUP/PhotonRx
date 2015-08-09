@@ -343,6 +343,21 @@ namespace PhotonRx
         }
         #endregion
 
+        #region ReactivePhotonPlayersTriggers
+
+        /// <summary>
+        /// プレイヤが部屋に入退出したことをReactiveCollectionで扱う
+        /// </summary>
+        /// <param name="component"></param>
+        /// <returns></returns>
+        public static ReactiveCollection<PhotonPlayer> ReactivePhotonPlayers(this Component component)
+        {
+            if (component == null || component.gameObject == null) return null;
+            return
+                GetOrAddComponent<ReactivePhotonPlayersTriggers>(component.gameObject).PhotonPlayersReactiveCollection();
+        }
+
+        #endregion
 
         private static T GetOrAddComponent<T>(GameObject gameObject)
             where T : Component
