@@ -132,7 +132,7 @@ namespace PhotonRx
 
         #region ObservableOnLeftRoomTrigger
         /// <summary>
-        /// 自信が部屋から退出したことを通知する
+        /// 自身が部屋から退出したことを通知する
         /// </summary>
         public static IObservable<Unit> OnLeftRoomAsObservable(this Component component)
         {
