@@ -264,7 +264,7 @@ namespace PhotonRx
 
         #region ObservableOnPhotonPlayerPropertiesChangedTrigger
         /// <summary>
-        /// リモートプレイヤが部屋から退出したことを通知する
+        /// プレイヤのカスタムプロパティが変更されたことを通知する
         /// </summary>
         public static IObservable<Tuple<PhotonPlayer, Hashtable>> OnPhotonPlayerPropertiesChangedAsObservable(this Component component)
         {
