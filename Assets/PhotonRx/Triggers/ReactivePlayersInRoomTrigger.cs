@@ -60,7 +60,10 @@ namespace PhotonRx.Triggers
 
         protected override void RaiseOnCompletedOnDestroy()
         {
-
+            if (_playersReactiveCollection != null)
+            {
+                _playersReactiveCollection.Dispose();
+            }
         }
     }
 }
