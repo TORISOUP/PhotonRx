@@ -372,6 +372,20 @@ namespace PhotonRx
 
         #endregion
 
+        #region ObservableOnPhotonPlayerActivityChanged
+
+        /// <summary>
+        /// Remote Playerのアクティビティが変化したことを通知する
+        /// (PlayerTtl > 0 の状態の時のみ通知される）
+        /// </summary>
+        public static IObservable<PhotonPlayer> OnPhotonPlayerActivityChangedAsObservable(this Component component)
+        {
+            if (component == null || component.gameObject == null) return Observable.Empty<PhotonPlayer>();
+            return GetOrAddComponent<ObservableOnPhotonPlayerActivityChanged>(component.gameObject).OnPhotonPlayerActivityChangedAsObservable();
+        }
+
+        #endregion
+
         private static T GetOrAddComponent<T>(GameObject gameObject)
             where T : Component
         {
