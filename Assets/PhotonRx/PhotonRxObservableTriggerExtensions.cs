@@ -177,9 +177,9 @@ namespace PhotonRx
         /// <summary>
         /// CreateRoomが失敗したことを通知する
         /// </summary>
-        public static IObservable<object[]> OnPhotonCreateRoomFailedWithLogAsObservable(this Component component)
+        public static IObservable<FailureReason> OnPhotonCreateRoomFailedWithLogAsObservable(this Component component)
         {
-            if (component == null || component.gameObject == null) return Observable.Empty<object[]>();
+            if (component == null || component.gameObject == null) return Observable.Empty<FailureReason>();
             return GetOrAddComponent<ObservableOnPhotonCreateRoomFailedTrigger>(component.gameObject).OnPhotonCreateRoomFailedWithLogAsObservable();
         }
 
@@ -221,9 +221,9 @@ namespace PhotonRx
         /// <summary>
         /// JoinRoomに失敗したことを通知する
         /// </summary>
-        public static IObservable<object[]> OnPhotonJoinRoomFailedWithLogAsObservable(this Component component)
+        public static IObservable<FailureReason> OnPhotonJoinRoomFailedWithLogAsObservable(this Component component)
         {
-            if (component == null || component.gameObject == null) return Observable.Empty<object[]>();
+            if (component == null || component.gameObject == null) return Observable.Empty<FailureReason>();
             return GetOrAddComponent<ObservableOnPhotonJoinRoomFailedTrigger>(component.gameObject).OnPhotonJoinRoomFailedWithLogAsObservable();
         }
 
@@ -287,9 +287,9 @@ namespace PhotonRx
         /// <summary>
         /// JoinRandomに失敗したことを通知する
         /// </summary>
-        public static IObservable<object[]> OnPhotonRandomJoinFailedWithLogAsObservable(this Component component)
+        public static IObservable<FailureReason> OnPhotonRandomJoinFailedWithLogAsObservable(this Component component)
         {
-            if (component == null || component.gameObject == null) return Observable.Empty<object[]>();
+            if (component == null || component.gameObject == null) return Observable.Empty<FailureReason>();
             return GetOrAddComponent<ObservableOnPhotonRandomJoinFailedTrigger>(component.gameObject).OnPhotonRandomJoinFailedWithLogAsObservable();
         }
 

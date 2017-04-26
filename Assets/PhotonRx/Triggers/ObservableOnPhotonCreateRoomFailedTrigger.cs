@@ -9,7 +9,7 @@ namespace PhotonRx.Triggers
     public class ObservableOnPhotonCreateRoomFailedTrigger : ObservableTriggerBase
     {
         private Subject<Unit> onPhotonCreateRoomFailed;
-        private Subject<object[]> onPhotonCreateRoomFailedWithLog;
+        private Subject<FailureReason> onPhotonCreateRoomFailedWithLog;
 
         private void OnPhotonCreateRoomFailed()
         {
@@ -18,7 +18,12 @@ namespace PhotonRx.Triggers
 
         private void OnPhotonCreateRoomFailed(object[] log)
         {
-            if (onPhotonCreateRoomFailedWithLog != null) onPhotonCreateRoomFailedWithLog.OnNext(log);
+            if (onPhotonCreateRoomFailedWithLog != null)
+            {
+                var code = (short)log[0];
+                var message = log[1] as string;
+                onPhotonCreateRoomFailedWithLog.OnNext(new FailureReason(code, message));
+            }
         }
 
         /// <summary>
@@ -33,9 +38,9 @@ namespace PhotonRx.Triggers
         /// CreateRoomの呼び出しが失敗したことを通知する
         /// PhotonNetwork.logLevel を PhotonLogLevel.Informational以上に設定している場合はこちらを使う
         /// </summary>
-        public IObservable<object[]> OnPhotonCreateRoomFailedWithLogAsObservable()
+        public IObservable<FailureReason> OnPhotonCreateRoomFailedWithLogAsObservable()
         {
-            return onPhotonCreateRoomFailedWithLog ?? (onPhotonCreateRoomFailedWithLog = new Subject<object[]>());
+            return onPhotonCreateRoomFailedWithLog ?? (onPhotonCreateRoomFailedWithLog = new Subject<FailureReason>());
         }
 
         protected override void RaiseOnCompletedOnDestroy()

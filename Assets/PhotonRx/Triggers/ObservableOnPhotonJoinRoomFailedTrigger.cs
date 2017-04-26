@@ -9,16 +9,21 @@ namespace PhotonRx.Triggers
     public class ObservableOnPhotonJoinRoomFailedTrigger : ObservableTriggerBase
     {
         private Subject<Unit> onPhotonJoinRoomFailed;
-        private Subject<object[]> onPhotonJoinRoomFailedWithLog;
+        private Subject<FailureReason> onPhotonJoinRoomFailedWithLog;
 
         void OnPhotonJoinRoomFailed()
         {
             if (onPhotonJoinRoomFailed != null) onPhotonJoinRoomFailed.OnNext(Unit.Default);
-            
+
         }
         void OnPhotonJoinRoomFailed(object[] log)
         {
-            if(onPhotonJoinRoomFailedWithLog!=null) onPhotonJoinRoomFailedWithLog.OnNext(log);
+            if (onPhotonJoinRoomFailedWithLog != null)
+            {
+                var code = (short)log[0];
+                var message = log[1] as string;
+                onPhotonJoinRoomFailedWithLog.OnNext(new FailureReason(code, message));
+            }
         }
 
         /// <summary>
@@ -33,9 +38,9 @@ namespace PhotonRx.Triggers
         /// JoinRoomに失敗したことを通知する
         /// PhotonNetwork.logLevel を PhotonLogLevel.Informational以上に設定している場合はこちらを使う
         /// </summary>
-        public IObservable<object[]> OnPhotonJoinRoomFailedWithLogAsObservable()
+        public IObservable<FailureReason> OnPhotonJoinRoomFailedWithLogAsObservable()
         {
-            return onPhotonJoinRoomFailedWithLog ?? (onPhotonJoinRoomFailedWithLog = new Subject<object[]>());
+            return onPhotonJoinRoomFailedWithLog ?? (onPhotonJoinRoomFailedWithLog = new Subject<FailureReason>());
         }
 
         protected override void RaiseOnCompletedOnDestroy()

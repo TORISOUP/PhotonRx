@@ -9,16 +9,21 @@ namespace PhotonRx.Triggers
     public class ObservableOnPhotonRandomJoinFailedTrigger : ObservableTriggerBase
     {
         private Subject<Unit> onPhotonRandomJoinRoomFailed;
-        private Subject<object[]> onPhotonRandomJoinRoomFailedWithLog;
+        private Subject<FailureReason> onPhotonRandomJoinRoomFailedWithLog;
 
         void OnPhotonRandomJoinFailed()
         {
             if (onPhotonRandomJoinRoomFailed != null) onPhotonRandomJoinRoomFailed.OnNext(Unit.Default);
-            
+
         }
         void OnPhotonRandomJoinFailed(object[] log)
         {
-            if(onPhotonRandomJoinRoomFailedWithLog!=null) onPhotonRandomJoinRoomFailedWithLog.OnNext(log);
+            if (onPhotonRandomJoinRoomFailedWithLog != null)
+            {
+                var code = (short)log[0];
+                var message = log[1] as string;
+                onPhotonRandomJoinRoomFailedWithLog.OnNext(new FailureReason(code, message));
+            }
         }
 
         /// <summary>
@@ -33,9 +38,9 @@ namespace PhotonRx.Triggers
         /// JoinRandomに失敗したことを通知する
         /// PhotonNetwork.logLevel を PhotonLogLevel.Informational以上に設定している場合はこちらを使う
         /// </summary>
-        public IObservable<object[]> OnPhotonRandomJoinFailedWithLogAsObservable()
+        public IObservable<FailureReason> OnPhotonRandomJoinFailedWithLogAsObservable()
         {
-            return onPhotonRandomJoinRoomFailedWithLog ?? (onPhotonRandomJoinRoomFailedWithLog = new Subject<object[]>());
+            return onPhotonRandomJoinRoomFailedWithLog ?? (onPhotonRandomJoinRoomFailedWithLog = new Subject<FailureReason>());
         }
 
         protected override void RaiseOnCompletedOnDestroy()
