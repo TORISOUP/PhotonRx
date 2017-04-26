@@ -43,7 +43,7 @@ namespace PhotonRx
         /// </summary>
         public static IObservable<DisconnectCause> OnConnectionFailAsObservable(this Component component)
         {
-            if (component == null || component.gameObject == null) return Observable.Empty<DisconnectCause> ();
+            if (component == null || component.gameObject == null) return Observable.Empty<DisconnectCause>();
             return GetOrAddComponent<ObservableOnConnectionFailTrigger>(component.gameObject).OnConnectionFailAsObservable();
         }
         #endregion
@@ -355,6 +355,19 @@ namespace PhotonRx
             if (component == null || component.gameObject == null) return null;
             return
                 GetOrAddComponent<ReactivePhotonPlayersTriggers>(component.gameObject).PhotonPlayersReactiveCollection();
+        }
+
+        #endregion
+
+        #region ObservableOnOwnershipTransfered
+
+        /// <summary>
+        /// Ownerが切り替わったことを通知する
+        /// </summary>
+        public static IObservable<OwnershipTransferedObject> OnOwnershipTransferedAsObservable(this Component component)
+        {
+            if (component == null || component.gameObject == null) return Observable.Empty<OwnershipTransferedObject>();
+            return GetOrAddComponent<ObservableOnOwnershipTransfered>(component.gameObject).OnOwnershipTransferedAsObservable();
         }
 
         #endregion
