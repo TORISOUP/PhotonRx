@@ -8,45 +8,29 @@ namespace PhotonRx.Triggers
     [DisallowMultipleComponent]
     public class ObservableOnPhotonJoinRoomFailedTrigger : ObservableTriggerBase
     {
-        private Subject<Unit> onPhotonJoinRoomFailed;
-        private Subject<FailureReason> onPhotonJoinRoomFailedWithLog;
+        private Subject<FailureReason> onPhotonJoinRoomFailed;
 
-        void OnPhotonJoinRoomFailed()
-        {
-            if (onPhotonJoinRoomFailed != null) onPhotonJoinRoomFailed.OnNext(Unit.Default);
-
-        }
         void OnPhotonJoinRoomFailed(object[] log)
         {
-            if (onPhotonJoinRoomFailedWithLog != null)
+            if (onPhotonJoinRoomFailed != null)
             {
                 var code = (short)log[0];
                 var message = log[1] as string;
-                onPhotonJoinRoomFailedWithLog.OnNext(new FailureReason(code, message));
+                onPhotonJoinRoomFailed.OnNext(new FailureReason(code, message));
             }
         }
 
         /// <summary>
         /// JoinRoomに失敗したことを通知する
         /// </summary>
-        public IObservable<Unit> OnPhotonJoinRoomFailedAsObservable()
+        public IObservable<FailureReason> OnPhotonJoinRoomFailedAsObservable()
         {
-            return onPhotonJoinRoomFailed ?? (onPhotonJoinRoomFailed = new Subject<Unit>());
-        }
-
-        /// <summary>
-        /// JoinRoomに失敗したことを通知する
-        /// PhotonNetwork.logLevel を PhotonLogLevel.Informational以上に設定している場合はこちらを使う
-        /// </summary>
-        public IObservable<FailureReason> OnPhotonJoinRoomFailedWithLogAsObservable()
-        {
-            return onPhotonJoinRoomFailedWithLog ?? (onPhotonJoinRoomFailedWithLog = new Subject<FailureReason>());
+            return onPhotonJoinRoomFailed ?? (onPhotonJoinRoomFailed = new Subject<FailureReason>());
         }
 
         protected override void RaiseOnCompletedOnDestroy()
         {
             if (onPhotonJoinRoomFailed != null) onPhotonJoinRoomFailed.OnCompleted();
-            if (onPhotonJoinRoomFailedWithLog != null) onPhotonJoinRoomFailedWithLog.OnCompleted();
         }
     }
 }

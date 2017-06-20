@@ -165,22 +165,14 @@ namespace PhotonRx
 
         #region ObservableOnPhotonCreateRoomFailedTrigger
 
-        /// <summary>
-        /// CreateRoomが失敗したことを通知する
-        /// </summary>
-        public static IObservable<Unit> OnPhotonCreateRoomFailedAsObservable(this Component component)
-        {
-            if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnPhotonCreateRoomFailedTrigger>(component.gameObject).OnPhotonCreateRoomFailedAsObservable();
-        }
 
         /// <summary>
         /// CreateRoomが失敗したことを通知する
         /// </summary>
-        public static IObservable<FailureReason> OnPhotonCreateRoomFailedWithLogAsObservable(this Component component)
+        public static IObservable<FailureReason> OnPhotonCreateRoomFailedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<FailureReason>();
-            return GetOrAddComponent<ObservableOnPhotonCreateRoomFailedTrigger>(component.gameObject).OnPhotonCreateRoomFailedWithLogAsObservable();
+            return GetOrAddComponent<ObservableOnPhotonCreateRoomFailedTrigger>(component.gameObject).OnPhotonCreateRoomFailedObservable();
         }
 
         #endregion
@@ -212,19 +204,10 @@ namespace PhotonRx
         /// <summary>
         /// JoinRoomに失敗したことを通知する
         /// </summary>
-        public static IObservable<Unit> OnPhotonJoinRoomFailedAsObservable(this Component component)
-        {
-            if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnPhotonJoinRoomFailedTrigger>(component.gameObject).OnPhotonJoinRoomFailedAsObservable();
-        }
-
-        /// <summary>
-        /// JoinRoomに失敗したことを通知する
-        /// </summary>
-        public static IObservable<FailureReason> OnPhotonJoinRoomFailedWithLogAsObservable(this Component component)
+        public static IObservable<FailureReason> OnPhotonJoinRoomFailedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<FailureReason>();
-            return GetOrAddComponent<ObservableOnPhotonJoinRoomFailedTrigger>(component.gameObject).OnPhotonJoinRoomFailedWithLogAsObservable();
+            return GetOrAddComponent<ObservableOnPhotonJoinRoomFailedTrigger>(component.gameObject).OnPhotonJoinRoomFailedAsObservable();
         }
 
         #endregion
@@ -278,19 +261,10 @@ namespace PhotonRx
         /// <summary>
         /// JoinRandomに失敗したことを通知する
         /// </summary>
-        public static IObservable<Unit> OnPhotonRandomJoinFailedAsObservable(this Component component)
-        {
-            if (component == null || component.gameObject == null) return Observable.Empty<Unit>();
-            return GetOrAddComponent<ObservableOnPhotonRandomJoinFailedTrigger>(component.gameObject).OnPhotonRandomJoinFailedFailedAsObservable();
-        }
-
-        /// <summary>
-        /// JoinRandomに失敗したことを通知する
-        /// </summary>
-        public static IObservable<FailureReason> OnPhotonRandomJoinFailedWithLogAsObservable(this Component component)
+        public static IObservable<FailureReason> OnPhotonRandomJoinFailedAsObservable(this Component component)
         {
             if (component == null || component.gameObject == null) return Observable.Empty<FailureReason>();
-            return GetOrAddComponent<ObservableOnPhotonRandomJoinFailedTrigger>(component.gameObject).OnPhotonRandomJoinFailedWithLogAsObservable();
+            return GetOrAddComponent<ObservableOnPhotonRandomJoinFailedTrigger>(component.gameObject).OnPhotonRandomJoinFailedAsObservable();
         }
 
         #endregion
