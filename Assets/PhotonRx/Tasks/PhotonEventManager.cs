@@ -47,9 +47,9 @@ namespace PhotonRx
         }
         #endregion
 
-        public void ConnectToServer()
+        private void Awake()
         {
-            
+            DontDestroyOnLoad(gameObject);
         }
     }
 }
