@@ -16,7 +16,7 @@ public class LoginTaskSample : MonoBehaviour
     {
         PhotonNetwork.autoJoinLobby = true;
 
-        var connect = await PhotoTask.ConnectUsingSettings("v1");
+        var connect = await PhotonTask.ConnectUsingSettings("v1");
 
         // 失敗
         if (connect.IsFailure)
@@ -25,14 +25,14 @@ public class LoginTaskSample : MonoBehaviour
             return;
         }
 
-        var randomJoined = await PhotoTask.JoinRandomRoom();
+        var randomJoined = await PhotonTask.JoinRandomRoom();
 
         //成功なら終わり
         if (randomJoined.IsSuccess) return;
 
         Debug.Log("Create Room");
 
-        var created = await PhotoTask.JoinOrCreateRoom("test", null, null, null);
+        var created = await PhotonTask.JoinOrCreateRoom("test", null, null, null);
 
         if (created.IsSuccess)
         {

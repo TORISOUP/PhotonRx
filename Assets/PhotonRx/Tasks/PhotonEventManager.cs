@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-#if (NET_4_6)
+#if ( NET_4_6 || NET_STANDARD_2_0)
 namespace PhotonRx
 {
     public class PhotonEventManager : MonoBehaviour
