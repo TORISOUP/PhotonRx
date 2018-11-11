@@ -3,14 +3,18 @@
 PhotonRxは、[Photon Unity Networking](https://www-jp.exitgames.com/ja/PUN)を[UniRx](https://github.com/neuecc/UniRx)のObservableとして扱えるようにしたライブラリです。
 Photonのコールバック群をObservableTriggerとして定義しています。
 
-## 導入方法
+PhotonRx supports to [Photon Unity Networking](https://www-jp.exitgames.com/ja/PUN) as Observable([UniRx](https://github.com/neuecc/UniRx)).  
+
+
+## 導入方法 (How to install)
 
 PhotonRx.unitypackageをプロジェクトにインポートしてください。
 [Photon Unity Networking](https://www-jp.exitgames.com/ja/PUN)と[UniRx](https://github.com/neuecc/UniRx)は含んでいないので、これらは自身でインポートする必要があります。
 
-## 使い方
+Include [PhotonRx.unitypackage](https://github.com/TORISOUP/PhotonRx/releases) to your Unity project.  
+(PhotonRx dose NOT contain PUN and UniRx assets.)
 
-ObservableTriggerと同様に、this.xxxAsObservableでストリームを取得することができます。
+## 使い方(How to use)
 
 ```csharp
 using System;
@@ -24,10 +28,10 @@ public class SubscribeConnection : MonoBehaviour
     private void Start()
     {
         this.OnConnectedToPhotonAsObservable()
-            .Subscribe(_ => Debug.Log("サーバへ接続成功"));
+            .Subscribe(_ => Debug.Log("Success"));
 
         this.OnFailedToConnectToPhotonAsObservable()
-            .Subscribe(_ => Debug.Log("サーバへの接続失敗"));
+            .Subscribe(_ => Debug.Log("Failure"));
     }
 }
 
@@ -35,8 +39,6 @@ public class SubscribeConnection : MonoBehaviour
 
 ## Task support
 
-`.NET 4.6`モードであればログインおよび部屋に参加する場合に`Task`を使うことができます。
-`Photon.Task`以下のメソッドを利用してください。
 
 ```cs
 using UnityEngine;
@@ -61,12 +63,12 @@ public class TaskSample : MonoBehaviour
 
     private async Task<bool> Connect()
     {
-        // サーバに接続
-        var connect = await PhotoTask.ConnectUsingSettings("v1");
+        // Connect to server
+        var connect = await PhotonTask.ConnectUsingSettings("v1");
 
         if (connect.IsFailure)
         {
-            // 失敗
+            // Failure
             Debug.LogError(connect.ToFailure.Value);
         }
 
@@ -75,18 +77,18 @@ public class TaskSample : MonoBehaviour
 
     private async Task<bool> JoinRoom()
     {
-        // 適当な部屋に参加する
-        var randomJoined = await PhotoTask.JoinRandomRoom();
+        // Join random room
+        var randomJoined = await PhotonTask.JoinRandomRoom();
 
-        // 成功なら終わり
+        // Success
         if (randomJoined.IsSuccess) return true;
 
-        // 部屋を作って参加する
-        var created = await PhotoTask.CreateRoom("test", null, null, null);
+        // Create new room
+        var created = await PhotonTask.CreateRoom("test", null, null, null);
 
         if (!created.IsSuccess)
         {
-            //失敗
+            // Failure
             Debug.LogError(created.ToFailure.Value);
         }
 
@@ -95,9 +97,9 @@ public class TaskSample : MonoBehaviour
 }
 ```
 
-## 配布ライセンス
+## LICENSE
 
-MIT Licenseで公開します
+MIT License.
 
 
 ## 権利表記
