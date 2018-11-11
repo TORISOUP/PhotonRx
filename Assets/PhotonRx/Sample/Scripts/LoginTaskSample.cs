@@ -1,6 +1,7 @@
-﻿using PhotonRx;
+﻿using System.Threading;
+using PhotonRx;
 using UnityEngine;
-#if (NET_4_6)
+#if ( NET_4_6 || NET_STANDARD_2_0)
 using System.Threading.Tasks;
 #endif
 
@@ -11,12 +12,22 @@ public class LoginTaskSample : MonoBehaviour
         LoginAndJoinRoom();
     }
 
-#if (NET_4_6)
+#if ( NET_4_6 || NET_STANDARD_2_0)
+
+    CancellationTokenSource _cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource();
+
+    private void OnDestroy()
+    {
+        _cancellationTokenSource?.Cancel();
+        _cancellationTokenSource?.Dispose();
+    }
+
     async void LoginAndJoinRoom()
     {
+        var token = _cancellationTokenSource.Token;
         PhotonNetwork.autoJoinLobby = true;
 
-        var connect = await PhotonTask.ConnectUsingSettings("v1");
+        var connect = await PhotonTask.ConnectUsingSettings("v1", token);
 
         // 失敗
         if (connect.IsFailure)
@@ -25,14 +36,14 @@ public class LoginTaskSample : MonoBehaviour
             return;
         }
 
-        var randomJoined = await PhotonTask.JoinRandomRoom();
+        var randomJoined = await PhotonTask.JoinRandomRoom(token);
 
         //成功なら終わり
         if (randomJoined.IsSuccess) return;
 
         Debug.Log("Create Room");
 
-        var created = await PhotonTask.JoinOrCreateRoom("test", null, null, null);
+        var created = await PhotonTask.JoinOrCreateRoom("test", null, null, null, token);
 
         if (created.IsSuccess)
         {
